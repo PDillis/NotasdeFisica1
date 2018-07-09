@@ -1,0 +1,189 @@
+% This is LLNCS.DOC the documentation file of
+% the LaTeX2e class from Springer-Verlag
+% for Lecture Notes in Computer Science, version 2.4
+\documentclass{book}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage{siunitx}
+\usepackage[demo]{graphicx}
+\usepackage{subcaption}
+\usepackage[spanish, mexico]{babel}
+\usepackage{cancel}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\usepackage{color,soul}
+\usepackage{animate}
+\usepackage{enumitem}
+\decimalpoint
+\usepackage[singlelinecheck=false]{caption}
+% \usepackage{multirow}
+% Rename table of contents
+
+\renewcommand{\contentsname}{Tabla de Contenidos}
+
+% Large chapter names and number
+
+\makeatletter
+\renewcommand{\@chapapp}{Cap\'itulo}
+\makeatother
+
+% Rename part to Parte
+
+\renewcommand{\partname}{Parte}
+
+
+\newcommand{\placetitlepicture}{} % initialization
+
+% Change references name
+
+\renewcommand{\bibname}{Bibliograf\'ia}
+
+% Change name of figures
+
+\renewcommand{\figurename}{Figura}
+
+% Declare L, M, T
+
+\DeclareSIUnit{\length}{L}
+\DeclareSIUnit{\mass}{M}
+\DeclareSIUnit{\time}{T}
+
+\DeclareSIUnit{\milla}{mi.}
+\DeclareSIUnit{\inch}{in.}
+\DeclareSIUnit{\pie}{ft.}
+\DeclareSIUnit{\aluz}{ly.}
+
+% Teoremas, ejercicios y ejemplos
+
+\newtheorem{teorema}{Teorema}[section]
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\upshape}
+\theoremseparator{.}
+
+\newtheorem{ejercicio}[teorema]{Ejercicio}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\upshape}
+\theoremseparator{.}
+
+\newtheorem{ejemplo}[teorema]{Ejemplo}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\upshape}
+\theoremseparator{.}
+
+\newtheorem*{solution*}{Soluci\'on}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\markboth{Notas de Curso de F\'isica 1 - FF2016}{Notas de Curso de F\'isica 1 - FF2016}
+\thispagestyle{empty}
+% \begin{flushleft}
+% \LARGE\bfseries MSc. Diego Porres\\
+% Universidad del Valle de Guatemala\\[2cm]
+% \end{flushleft}
+
+\vspace{2pt}
+\begin{flushright}
+\Huge
+\begin{tabular}{@{}l}
+Notas de Curso\\
+FF2016 - F\'isica 1\\
+Secci\'on 130\\[6pt]
+{\Large Versi\'on 0.1}
+\end{tabular}
+\end{flushright}
+\rule{\textwidth}{1pt}
+\vspace{30px}
+
+\begin{center}
+    \includegraphics[width=\textwidth]{grel.jpg}
+\end{center}
+\vfill
+
+\begin{flushleft}
+\large\itshape
+\begin{tabular}{@{}l}
+{\Large\upshape\bfseries MSc. Diego Porres}\\[8pt]
+Universidad del Valle de Guatemala\\[5pt]
+Guatemala, Guatemala\\[5pt]
+\end{tabular}
+\end{flushleft}
+\newpage
+%
+\thispagestyle{empty}
+\vspace*{\fill}
+\subsection*{Datos de contacto \'utiles:}
+%
+\begin{flushleft}
+\begin{tabular}{l@{\quad}l@{\hspace{3mm}}l@{\qquad}l}
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries MSc. Diego Porres}\\[1mm]
+&\multicolumn{3}{@{}l}{Para dudas del curso y/o errata de estas notas}\\[0.5mm]
+ & e-mail:    & \href{mailto:daporres@uvg.edu.gt}{daporres@uvg.edu.gt} \\[1mm]
+ & Sal\'on de clase: & A-202 \\
+ & Laboratorio: & C-115 \\ [2mm]
+\noalign{\rule{\textwidth}{1pt}}
+\noalign{\vskip2mm}
+
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries Auxiliares de Laboratorio}\\[1mm]
+&\multicolumn{3}{@{}l}{Para dudas de pr\'acticas por venir}\\[0.5mm]
+ & \textbf{Mar\'ia Ren\'ee Loarca}:    & \href{mailto:marrelg22@gmail.com}{marrelg22@gmail.com} \\[1mm]
+ & \textbf{Jorge Mario Tezen}: & \href{mailto:jtezen1393@gmail.com}{jtezen1393@gmail.com} \\ [2mm]
+
+\noalign{\rule{\textwidth}{1pt}}
+\noalign{\vskip2mm}
+%
+%{\tt svserv@vax.ntp.springer.de}\hfil first try the \verb|help|
+%command.
+
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries Departamento de F\'isica:}\\[1mm]
+         &\multicolumn{2}{@{}l}{Contacto: Olga Marina Castellanos}\\[0.5mm]
+ & Sitio web:    & \url{http://www.uvg.edu.gt/cchh/fisica/} \\[0.5mm]
+ & Tel\'efono:           & 2364-0336 Ext. 21560 \'o 21563\\[0.5mm]
+ & Oficina: & C-113\\
+
+
+
+
+\end{tabular}
+\end{flushleft}
+
+
+%
+\newpage
+\tableofcontents
+\newpage
+%
+\chapter{Pr\'ologo}
+\include{cap_1_intro.tex}
+%
+% -1	\part{part}
+% 0	\chapter{chapter}
+% 1	\section{section}
+% 2	\subsection{subsection}
+% 3	\subsubsection{subsubsection}
+% 4	\paragraph{paragraph}
+% 5	\subparagraph{subparagraph}
+
+\part{Mec\'anica}\label{part:mecanica}
+
+\chapter{F\'isica y Medici\'on}\label{ch:fisicamedicion}
+\input{cap_2_fisicamedicion.tex}
+
+%
+\chapter{Movimiento en una Dimensi\'on}\label{ch:Movimiento1d}
+\input{cap_3_mov1d.tex}
+
+
+\begin{thebibliography}{1}
+
+  \bibitem{einstein}  Einstein, Albert (1916). \emph{The Foundation of the General Theory of Relativity}. \textbf{Annalen der Physik}. 354 (7): 769. .
+
+  \end{thebibliography}
+
+\end{document}
