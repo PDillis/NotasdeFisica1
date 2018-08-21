@@ -1,0 +1,6 @@
+vi = 10.0;
+g = 9.80;
+R0 = vi^2/g;
+r[h_, \[Theta]_] := 
+ R0 (Sin[\[Theta]] + Sqrt[
+    Sin[\[Theta]]^2 + (2 g h)/vi^2]) Cos[\[Theta]];
