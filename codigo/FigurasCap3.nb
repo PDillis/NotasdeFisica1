@@ -1,0 +1,17 @@
+Plot3D[\[Piecewise] {
+   {Re[2*ArcTan[y/(Sqrt[x^2 + y^2] + x)]], x > 0},
+   {Re[2*ArcTan[(Sqrt[x^2 + y^2] - x)/y]], x <= 0 && y != 0},
+   {\[Pi], x < 0 && y == 0}
+  }, {x, -1, 1}, {y, -1, 1}, 
+ AxesLabel -> {Style[x, FontSize -> 16], Style[y, FontSize -> 18]}, 
+ PlotLabel -> Style[atan2[y, x], FontSize -> 18], 
+ Ticks -> {{-1.0, 0.0, 1.0}, {-1.0, 0.0, 1.0}, {-\[Pi], -\[Pi]/2, 
+    0, \[Pi]/2, \[Pi]}}, ImageSize -> Scaled[1], 
+ BoundaryStyle -> Thick, Exclusions -> {{x < 0}, y == 0}, Mesh -> 36, 
+ MeshFunctions -> {#3 &}]
+ 
+ DensityPlot[\[Piecewise] {
+   {2*ArcTan[y/(Sqrt[x^2 + y^2] + x)], x > 0},
+   {2*ArcTan[(Sqrt[x^2 + y^2] - x)/y], x <= 0 && y != 0},
+   {\[Pi], x < 0 && y == 0}
+  }, {x, -1, 1}, {y, -1, 1}, Exclusions -> {x <= 0, y == 0}]
