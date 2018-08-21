@@ -23,3 +23,17 @@ Show[Plot3D[r[h, \[Theta]], {h, 0, 50}, {\[Theta], 0, \[Pi]/2},
  FrameTicks -> {Automatic, Table[i \[Pi]/12, {i, 0, 6}]}, 
  FrameLabel -> {Style[h, FontSize -> 16], 
    Style[\[Theta], FontSize -> 16]}, ImageSize -> Scaled[1]]
+
+
+Needs["PlotLegends`"];
+
+y[\[Theta]_, x_, v_] := Tan[\[Theta]] x - 9.8/(2*v^2*Cos[\[Theta]]^2) x^2;
+
+Manipulate[
+ Plot[{y[\[Pi]/12, x, 10], y[\[Pi]/6, x, 10], y[\[Pi]/4, x, 10 ], 
+   y[\[Pi]/3, x, 10], y[5 \[Pi]/12, x, 10]}, {x, -0.1, c}, 
+  PlotStyle -> Thick, PlotRange -> {{0, 11}, {0, 6}}, 
+  PlotLabel -> 
+   Style["Tiro parabólico a distintos ángulos", FontSize -> 18], 
+  AxesLabel -> {Style[x, FontSize -> 20], Style[y, FontSize -> 20]}, 
+  Ticks -> False, ImageSize -> Scaled[1]], {c, 0.1, 12}]
