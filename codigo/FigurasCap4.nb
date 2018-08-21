@@ -1,6 +1,25 @@
 vi = 10.0;
 g = 9.80;
 R0 = vi^2/g;
-r[h_, \[Theta]_] := 
- R0 (Sin[\[Theta]] + Sqrt[
-    Sin[\[Theta]]^2 + (2 g h)/vi^2]) Cos[\[Theta]];
+
+r[h_, \[Theta]_] := R0 (Sin[\[Theta]] + Sqrt[Sin[\[Theta]]^2 + (2 g h)/vi^2]) Cos[\[Theta]];
+
+data = Table[NMaximize[r[h, \[Theta]], \[Theta]], {h, 0, 50}];
+
+rm = Table[data[[i]][[1]], {i, 1, 51}];
+th = \[Theta] /. Table[data[[i]][[2]], {i, 1, 51}];
+hi = Table[h, {h, 0, 50}];
+
+Show[Plot3D[r[h, \[Theta]], {h, 0, 50}, {\[Theta], 0, \[Pi]/2}, 
+  AxesLabel -> {Style[h, FontSize -> 16], 
+    Style[\[Theta], FontSize -> 16], 
+    Style[R[h, \[Theta]], FontSize -> 16]}, 
+  Ticks -> {Automatic, Table[i \[Pi]/12, {i, 0, 6}], Automatic}, 
+  ImageSize -> Scaled[1], BoundaryStyle -> Thick], 
+ Graphics3D[{Red, PointSize[0.01], Point[Transpose[{hi, th, rm}]]}]]
+ 
+ ContourPlot[r[h, \[Theta]], {h, 0, 50}, {\[Theta], 0, \[Pi]/2}, 
+ Epilog -> {Red, Point[Transpose[{hi, th}]]}, Contours -> 40, 
+ FrameTicks -> {Automatic, Table[i \[Pi]/12, {i, 0, 6}]}, 
+ FrameLabel -> {Style[h, FontSize -> 16], 
+   Style[\[Theta], FontSize -> 16]}, ImageSize -> Scaled[1]]
